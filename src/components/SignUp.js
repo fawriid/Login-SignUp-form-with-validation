@@ -4,7 +4,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 import { validation } from './validation';
-import {note} from './toastify'
+import { note } from './toastify'
+import styles from './SignUp.module.css'
 
 
 const SignUp = () => {
@@ -49,12 +50,13 @@ const SignUp = () => {
     }
 
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <form onSubmit={submitHandler}>
-                <div>
+        <div className={styles.container}>
+            <form className={styles.formContainer} onSubmit={submitHandler}>
+                <h1 className={styles.header}>Sign Up</h1>
+                <div className={styles.formField}>
                     <label>Userame</label>
                     <input
+                        className={(errors.username && touched.username) ? styles.uncompleted : styles.formInput}
                         type="text"
                         name="username"
                         value={data.username}
@@ -65,9 +67,10 @@ const SignUp = () => {
                         <span>{errors.username}</span>
                     )}
                 </div>
-                <div>
+                <div className={styles.formField}>
                     <label>Email</label>
                     <input
+                        className={(errors.email && touched.email) ? styles.uncompleted : styles.formInput}
                         type="email"
                         name="email"
                         value={data.email}
@@ -76,9 +79,10 @@ const SignUp = () => {
                     />
                     {errors.email && touched.email && <span>{errors.email}</span>}
                 </div>
-                <div>
+                <div className={styles.formField}>
                     <label>Password</label>
                     <input
+                        className={(errors.password && touched.password) ? styles.uncompleted : styles.formInput}
                         type="password"
                         name="password"
                         value={data.password}
@@ -89,9 +93,10 @@ const SignUp = () => {
                         <span>{errors.password}</span>
                     )}
                 </div>
-                <div>
+                <div className={styles.formField}>
                     <label>Confirm Password</label>
                     <input
+                        className={(errors.confirmPassword && touched.confirmPassword) ? styles.uncompleted : styles.formInput}
                         type="password"
                         name="confirmPassword"
                         value={data.confirmPassword}
@@ -102,23 +107,24 @@ const SignUp = () => {
                         <span>{errors.confirmPassword}</span>
                     )}
                 </div>
-                <div>
-                    <label>I accept all the regulation of privacy and policy </label>
-                    <input
-                        type="checkbox"
-                        name="isAccepted"
-                        value={data.isAccepted}
-                        onChange={changehandler}
-                        onBlur={blurHandler}
-                    />
+                <div className={styles.formField}>
+                    <div className={styles.checkBoxContainer}>
+                        <label>I accept all the regulation of privacy and policy </label>
+                        <input
+                            
+                            type="checkbox"
+                            name="isAccepted"
+                            value={data.isAccepted}
+                            onChange={changehandler}
+                            onBlur={blurHandler}
+                        />
+                    </div>
                     {errors.isAccepted && touched.isAccepted && (
                         <span>{errors.isAccepted}</span>
                     )}
                 </div>
-                <div>
-                    <button>
-                        <a href="#">Login</a>
-                    </button>
+                <div className={styles.formButtons}>
+                    <a href="#">Login</a>
                     <button type='submit'>Sign Up</button>
                 </div>
             </form>
