@@ -1,14 +1,5 @@
-export const validation = data => {
+export const validation = (data, type) => {
     const errors = {}
-
-
-    if (!data.username.trim()) {
-        errors.username = 'Username is required'
-    } else if (data.username.length < 3) {
-        errors.username = 'Username is not valid'
-    } else {
-        delete errors.username
-    }
 
 
     if (!data.email) {
@@ -18,7 +9,7 @@ export const validation = data => {
     } else {
         delete errors.email;
     }
-
+    
     if (!data.password) {
         errors.password = 'Password is required'
     } else if (data.password.length < 8) {
@@ -26,20 +17,30 @@ export const validation = data => {
     } else {
         delete errors.password
     }
+    
+    
+    if (type === "signUp") {
+        if (!data.username.trim()) {
+            errors.username = "Username is required";
+        } else if (data.username.length < 3) {
+            errors.username = "Username is not valid";
+        } else {
+            delete errors.username;
+        }
 
-    if (!data.confirmPassword) {
-        errors.confirmPassword = 'Please confirm your password'
-    } else if (data.confirmPassword !== data.password) {
-        errors.confirmPassword = "Password doesn't match"
-    } else {
-        delete errors.confirmPassword
-    }
+        if (!data.confirmPassword) {
+            errors.confirmPassword = "Please confirm your password";
+        } else if (data.confirmPassword !== data.password) {
+            errors.confirmPassword = "Password doesn't match";
+        } else {
+            delete errors.confirmPassword;
+        }
 
-
-    if (!data.isAccepted) {
-        errors.isAccepted = 'Accepting the regulation is required'
-    } else {
-        delete errors.isAccepted
+        if (!data.isAccepted) {
+            errors.isAccepted = "Accepting the regulation is required";
+        } else {
+            delete errors.isAccepted;
+        }
     }
 
     return errors

@@ -34,7 +34,7 @@ const SignUp = () => {
     }
 
     useEffect(() => {
-        setErrors(validation(data))
+        setErrors(validation(data,'signUp'))
     },[data, touched])
 
 
