@@ -20,7 +20,7 @@
   text-align: left;
   margin-bottom: 40px;
   font-size: 1.8rem;
-  color: #1a73e8;
+  color: #25d382;
 }
 
 .formField {
@@ -120,30 +120,30 @@ input[type="checkbox"]:focus {
 }
 
 .formButtons button {
-  background-color: #1a73e8;
+  background-color: #25d382;
   padding: 10px 20px;
   color: #fff;
   border-radius: 5px;
   border: none;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: 700;
   transition: all 0.1s ease-in;
   cursor: pointer;
 }
 
 .formButtons button:hover {
-  background-color: #004aaa;
+  background-color: #1ca163;
 }
 
 .formButtons a {
-  color: #25d382;
+  color: #1a73e8;
   text-decoration: none;
   transition: all 0.1s ease-in;
   font-weight: 700;
 }
 
 .formButtons a:hover {
-  color: #1ca163;
+  color: #004aaa;
 }
 @media (max-width: 440px) {
   .formContainer {

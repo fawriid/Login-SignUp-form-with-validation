@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { validation } from "./validation";
 import { note } from "./toastify";
-import styles from "./SignUp.module.css";
+import styles from "./Login.module.css";
 
 const Login = () => {
     const [data, setData] = useState({
