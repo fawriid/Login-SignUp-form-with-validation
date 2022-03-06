@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 
 
+import { Link } from "react-router-dom";
 import { validation } from './validation';
 import { note } from './toastify'
 import styles from './SignUp.module.css'
@@ -124,7 +125,7 @@ const SignUp = () => {
                     )}
                 </div>
                 <div className={styles.formButtons}>
-                    <a href="#">Login</a>
+                    <Link to='/login'>Login</Link>
                     <button type='submit'>Sign Up</button>
                 </div>
             </form>
